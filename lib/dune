@@ -1,3 +1,20 @@
 (library
+  (public_name gpiod_auto.stubs)
+  (name gpiod_auto_stubs)
+  (libraries cppcaml.headers)
+  (modules)
+  (foreign_stubs
+    (language cxx)
+    (names gpiod_auto_stubs)
+    (flags :standard -Wall -O3 -std=c++23 -fconcepts-diagnostics-depth=8)
+    )
+  )
+
+(library
  (public_name gpiod_auto)
- (name gpiod_auto))
+ (name gpiod_auto)
+ (libraries gpiod_auto_stubs)
+ (preprocess (pps ppx_jane))
+ (inline_tests)
+ )
+
