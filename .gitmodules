@@ -1,0 +1,3 @@
+[submodule "vendor/cppcaml"]
+	path = vendor/cppcaml
+	url = git@github.com:smuenzel/cppcaml.git
