@@ -1,0 +1,3 @@
+(library
+ (public_name gpiod_auto)
+ (name gpiod_auto))
