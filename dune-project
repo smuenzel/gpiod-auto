@@ -5,22 +5,22 @@
 (generate_opam_files true)
 
 (source
- (github username/reponame))
+ (github smuenzel/gpiod-auto))
 
-(authors "Author Name <author@example.com>")
+(authors "Stefan Muenzel <source@s.muenzel.net>")
 
-(maintainers "Maintainer Name <maintainer@example.com>")
+(maintainers "Stefan Muenzel <source@s.muenzel.net>")
 
-(license LICENSE)
+(license MPL-2.0)
 
 (documentation https://url/to/documentation)
 
 (package
  (name gpiod_auto)
- (synopsis "A short synopsis")
- (description "A longer description")
+ (synopsis "Ocaml interface to libgpiod")
+ (description "Ocaml interface to libgpiod")
  (depends ocaml)
  (tags
-  ("add topics" "to describe" your project)))
+  ("gpio" "libgpiod")))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/reference/dune-project/index.html

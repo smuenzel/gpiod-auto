@@ -13,7 +13,7 @@
 (library
  (public_name gpiod_auto)
  (name gpiod_auto)
- (libraries gpiod_auto_stubs)
+ (libraries core gpiod_auto_stubs)
  (preprocess (pps ppx_jane))
  (inline_tests)
  )
