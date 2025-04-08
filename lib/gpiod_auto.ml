@@ -75,7 +75,27 @@ external gpiod_chip_info_get_num_lines
   : gpiod_chip_info -> int
   = "ccwrap__gpiod_chip_info_get_num_lines"
 
-(* 14 functions *)
+external gpiod_line_info_copy
+  : gpiod_line_info -> gpiod_line_info
+  = "ccwrap__gpiod_line_info_copy"
+
+external gpiod_line_info_get_offset
+  : gpiod_line_info -> uint32
+  = "ccwrap__gpiod_line_info_get_offset"
+
+external gpiod_line_info_get_name
+  : gpiod_line_info -> string
+  = "ccwrap__gpiod_line_info_get_name"
+
+external gpiod_line_info_is_used
+  : gpiod_line_info -> bool
+  = "ccwrap__gpiod_line_info_is_used"
+
+external gpiod_line_info_get_consumer
+  : gpiod_line_info -> string
+  = "ccwrap__gpiod_line_info_get_consumer"
+
+(* 19 functions *)
 (*$*)
 
 
@@ -92,3 +112,12 @@ let%expect_test "" =
     12345678
     123456789
     |}]
+
+(*$
+
+let () =
+  enum_print_as_comment ()
+
+*)
+
+(*$*)

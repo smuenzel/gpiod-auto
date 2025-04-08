@@ -72,3 +72,12 @@ DEF_CPPCAML_S(gpiod_chip_info_get_name, 1);
 DEF_CPPCAML_S(gpiod_chip_info_get_label, 1);
 DEF_CPPCAML_S(gpiod_chip_info_get_num_lines, 1);
 
+DEF_CPPCAML_S(gpiod_line_info_copy, 1);
+DEF_CPPCAML_S(gpiod_line_info_get_offset, 1);
+DEF_CPPCAML_S(gpiod_line_info_get_name, 1);
+DEF_CPPCAML_S(gpiod_line_info_is_used, 1);
+DEF_CPPCAML_S(gpiod_line_info_get_consumer, 1);
+// DEF_CPPCAML_S(gpiod_line_info_get_bias, 1);
+
+
+
