@@ -2,6 +2,7 @@
   (public_name gpiod_auto.stubs)
   (name gpiod_auto_stubs)
   (libraries cppcaml.headers)
+  (c_library_flags (:standard -lgpiod))
   (modules)
   (foreign_stubs
     (language cxx)
@@ -18,3 +19,9 @@
  (inline_tests)
  )
 
+
+(cinaps
+  (files gpiod_auto.ml)
+  (libraries core cppcaml.gen gpiod_auto_stubs)
+  (link_flags :standard -linkall)
+  )
