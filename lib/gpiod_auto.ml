@@ -119,5 +119,7 @@ let () =
   enum_print_as_comment ()
 
 *)
-
+(* ((name Cppcaml::X) (cpp_name Cppcaml::X) (is_bitflag false)
+ (entries (((name Axx) (value 0)) ((name B) (value 1)) ((name C) (value 2))))) *)
+(* 1 enums *)
 (*$*)
