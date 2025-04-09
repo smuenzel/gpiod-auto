@@ -27,6 +27,13 @@ CAMLprim value x(value)
   return (value)testCamlArray;
 }
 
+DEF_CPPCAML_ENUM(gpiod_line_value);
+DEF_CPPCAML_ENUM(gpiod_line_direction);
+DEF_CPPCAML_ENUM(gpiod_line_edge);
+DEF_CPPCAML_ENUM(gpiod_line_bias);
+DEF_CPPCAML_ENUM(gpiod_line_drive);
+DEF_CPPCAML_ENUM(gpiod_line_clock);
+DEF_CPPCAML_ENUM(gpiod_info_event_type);
 
 template<>
 struct Cppcaml::CamlType<gpiod_chip*>
@@ -56,6 +63,11 @@ template<>
 struct Cppcaml::CamlType<gpiod_line_request*>
 : CamlTypeSharedPtrContainer<gpiod_line_request, to_array("gpiod_line_request"), FunDeleter<gpiod_line_request_release>> { };
 
+template<>
+struct Cppcaml::CamlType<gpiod_line_settings*>
+: CamlTypeSharedPtrContainer<gpiod_line_settings, to_array("gpiod_line_settings"), FunDeleter<gpiod_line_settings_free>> { };
+
+
 DEF_CPPCAML_S(gpiod_chip_open, 1);
 DEF_CPPCAML_S(gpiod_chip_get_info, 1);
 DEF_CPPCAML_S(gpiod_chip_get_path, 1);
@@ -78,6 +90,40 @@ DEF_CPPCAML_S(gpiod_line_info_get_name, 1);
 DEF_CPPCAML_S(gpiod_line_info_is_used, 1);
 DEF_CPPCAML_S(gpiod_line_info_get_consumer, 1);
 // DEF_CPPCAML_S(gpiod_line_info_get_bias, 1);
+// DEF_CPPCAML_S(gpiod_line_info_get_drive, 1);
+DEF_CPPCAML_S(gpiod_line_info_is_active_low, 1);
+DEF_CPPCAML_S(gpiod_line_info_is_debounced, 1);
+DEF_CPPCAML_S(gpiod_line_info_get_debounce_period_us, 1);
+// DEF_CPPCAML_S(gpiod_line_info_get_event_clock, 1);
+// DEF_CPPCAML_S(gpiod_info_event_get_event_type, 1);
+DEF_CPPCAML_S(gpiod_info_event_get_timestamp_ns, 1);
+DEF_CPPCAML_S(gpiod_info_event_get_line_info, 1);
+// DEF_CPPCAML_S(gpiod_line_settings_new, 0);
+DEF_CPPCAML_S(gpiod_line_settings_reset, 1);
+DEF_CPPCAML_S(gpiod_line_settings_copy, 1);
+// DEF_CPPCAML_S(gpiod_line_settings_set_direction, 2);
+// DEF_CPPCAML_S(gpiod_line_settings_get_direction, 1);
+// DEF_CPPCAML_S(gpiod_line_settings_set_edge_detection, 2);
+// DEF_CPPCAML_S(gpiod_line_settings_get_edge_detection, 1);
+// DEF_CPPCAML_S(gpiod_line_settings_set_bias, 2);
+// DEF_CPPCAML_S(gpiod_line_settings_get_bias, 1);
+// DEF_CPPCAML_S(gpiod_line_settings_set_drive, 2);
+// DEF_CPPCAML_S(gpiod_line_settings_get_drive, 1);
+DEF_CPPCAML_S(gpiod_line_settings_set_active_low, 2);
+DEF_CPPCAML_S(gpiod_line_settings_get_active_low, 1);
+DEF_CPPCAML_S(gpiod_line_settings_set_debounce_period_us, 2);
+DEF_CPPCAML_S(gpiod_line_settings_get_debounce_period_us, 1);
+// DEF_CPPCAML_S(gpiod_line_settings_set_event_clock, 2);
+// DEF_CPPCAML_S(gpiod_line_settings_get_event_clock, 1);
+// DEF_CPPCAML_S(gpiod_line_settings_set_output_value, 2);
+// DEF_CPPCAML_S(gpiod_line_settings_get_output_value, 1);
+// DEF_CPPCAML_S(gpiod_line_config_new, 0);
+// DEF_CPPCAML_S(gpiod_line_config_add_line_settings, 4);
+DEF_CPPCAML_S(gpiod_line_config_get_line_settings, 2);
+// DEF_CPPCAML_S(gpiod_line_config_set_output_values, 3);
+DEF_CPPCAML_S(gpiod_line_config_get_num_configured_offsets, 1);
+// DEF_CPPCAML_S(gpiod_line_config_get_configured_offsets, 3);
+// DEF_CPPCAML_S(gpiod_request_config_new, 0);
 
 
 
