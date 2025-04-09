@@ -44,6 +44,9 @@ end = struct
   let active = 1
 end
 
+type gpiod_line_value = Gpiod_line_value.t
+
+
 module Gpiod_line_direction : sig
   type t [@@immediate]
 
@@ -63,6 +66,9 @@ end = struct
   let input = 2
   let output = 3
 end
+
+type gpiod_line_direction = Gpiod_line_direction.t
+
 
 module Gpiod_line_edge : sig
   type t [@@immediate]
@@ -85,6 +91,9 @@ end = struct
   let falling = 3
   let both = 4
 end
+
+type gpiod_line_edge = Gpiod_line_edge.t
+
 
 module Gpiod_line_bias : sig
   type t [@@immediate]
@@ -110,6 +119,9 @@ end = struct
   let pull_down = 5
 end
 
+type gpiod_line_bias = Gpiod_line_bias.t
+
+
 module Gpiod_line_drive : sig
   type t [@@immediate]
 
@@ -129,6 +141,9 @@ end = struct
   let open_drain = 2
   let open_source = 3
 end
+
+type gpiod_line_drive = Gpiod_line_drive.t
+
 
 module Gpiod_line_clock : sig
   type t [@@immediate]
@@ -150,6 +165,9 @@ end = struct
   let hte = 3
 end
 
+type gpiod_line_clock = Gpiod_line_clock.t
+
+
 module Gpiod_info_event_type : sig
   type t [@@immediate]
 
@@ -169,6 +187,9 @@ end = struct
   let gpiod_info_event_line_released = 2
   let gpiod_info_event_line_config_changed = 3
 end
+
+type gpiod_info_event_type = Gpiod_info_event_type.t
+
 
 
 (* 7 enums *)
@@ -249,6 +270,14 @@ external gpiod_line_info_get_consumer
   : gpiod_line_info -> string
   = "ccwrap__gpiod_line_info_get_consumer"
 
+external gpiod_line_info_get_bias
+  : gpiod_line_info -> gpiod_line_bias
+  = "ccwrap__gpiod_line_info_get_bias"
+
+external gpiod_line_info_get_drive
+  : gpiod_line_info -> gpiod_line_drive
+  = "ccwrap__gpiod_line_info_get_drive"
+
 external gpiod_line_info_is_active_low
   : gpiod_line_info -> bool
   = "ccwrap__gpiod_line_info_is_active_low"
@@ -260,6 +289,14 @@ external gpiod_line_info_is_debounced
 external gpiod_line_info_get_debounce_period_us
   : gpiod_line_info -> int
   = "ccwrap__gpiod_line_info_get_debounce_period_us"
+
+external gpiod_line_info_get_event_clock
+  : gpiod_line_info -> gpiod_line_clock
+  = "ccwrap__gpiod_line_info_get_event_clock"
+
+external gpiod_info_event_get_event_type
+  : gpiod_info_event -> gpiod_info_event_type
+  = "ccwrap__gpiod_info_event_get_event_type"
 
 external gpiod_info_event_get_timestamp_ns
   : gpiod_info_event -> int
@@ -277,6 +314,38 @@ external gpiod_line_settings_copy
   : gpiod_line_settings -> gpiod_line_settings
   = "ccwrap__gpiod_line_settings_copy"
 
+external gpiod_line_settings_set_direction
+  : gpiod_line_settings -> gpiod_line_direction -> int
+  = "ccwrap__gpiod_line_settings_set_direction"
+
+external gpiod_line_settings_get_direction
+  : gpiod_line_settings -> gpiod_line_direction
+  = "ccwrap__gpiod_line_settings_get_direction"
+
+external gpiod_line_settings_set_edge_detection
+  : gpiod_line_settings -> gpiod_line_edge -> int
+  = "ccwrap__gpiod_line_settings_set_edge_detection"
+
+external gpiod_line_settings_get_edge_detection
+  : gpiod_line_settings -> gpiod_line_edge
+  = "ccwrap__gpiod_line_settings_get_edge_detection"
+
+external gpiod_line_settings_set_bias
+  : gpiod_line_settings -> gpiod_line_bias -> int
+  = "ccwrap__gpiod_line_settings_set_bias"
+
+external gpiod_line_settings_get_bias
+  : gpiod_line_settings -> gpiod_line_bias
+  = "ccwrap__gpiod_line_settings_get_bias"
+
+external gpiod_line_settings_set_drive
+  : gpiod_line_settings -> gpiod_line_drive -> int
+  = "ccwrap__gpiod_line_settings_set_drive"
+
+external gpiod_line_settings_get_drive
+  : gpiod_line_settings -> gpiod_line_drive
+  = "ccwrap__gpiod_line_settings_get_drive"
+
 external gpiod_line_settings_set_active_low
   : gpiod_line_settings -> bool -> unit
   = "ccwrap__gpiod_line_settings_set_active_low"
@@ -293,6 +362,22 @@ external gpiod_line_settings_get_debounce_period_us
   : gpiod_line_settings -> int
   = "ccwrap__gpiod_line_settings_get_debounce_period_us"
 
+external gpiod_line_settings_set_event_clock
+  : gpiod_line_settings -> gpiod_line_clock -> int
+  = "ccwrap__gpiod_line_settings_set_event_clock"
+
+external gpiod_line_settings_get_event_clock
+  : gpiod_line_settings -> gpiod_line_clock
+  = "ccwrap__gpiod_line_settings_get_event_clock"
+
+external gpiod_line_settings_set_output_value
+  : gpiod_line_settings -> gpiod_line_value -> int
+  = "ccwrap__gpiod_line_settings_set_output_value"
+
+external gpiod_line_settings_get_output_value
+  : gpiod_line_settings -> gpiod_line_value
+  = "ccwrap__gpiod_line_settings_get_output_value"
+
 external gpiod_line_config_get_line_settings
   : gpiod_line_config -> uint32 -> gpiod_line_settings
   = "ccwrap__gpiod_line_config_get_line_settings"
@@ -301,7 +386,7 @@ external gpiod_line_config_get_num_configured_offsets
   : gpiod_line_config -> int
   = "ccwrap__gpiod_line_config_get_num_configured_offsets"
 
-(* 32 functions *)
+(* 48 functions *)
 (*$*)
 
 
