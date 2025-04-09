@@ -17,9 +17,162 @@ open Cppcaml_gen
 external x : unit -> string array = "x"
 
 let () =
+  print_enums ()
+
+let () =
   print_externals ()
 
 *)
+
+module Gpiod_line_value : sig
+  type t [@@immediate]
+
+  val to_int : t -> int
+  val of_int : int -> t
+
+  val error : t
+  val inactive : t
+  val active : t
+end = struct
+  type t = int
+
+  let to_int x = x
+  let of_int x = x
+
+  let error = -1
+  let inactive = 0
+  let active = 1
+end
+
+module Gpiod_line_direction : sig
+  type t [@@immediate]
+
+  val to_int : t -> int
+  val of_int : int -> t
+
+  val as_is : t
+  val input : t
+  val output : t
+end = struct
+  type t = int
+
+  let to_int x = x
+  let of_int x = x
+
+  let as_is = 1
+  let input = 2
+  let output = 3
+end
+
+module Gpiod_line_edge : sig
+  type t [@@immediate]
+
+  val to_int : t -> int
+  val of_int : int -> t
+
+  val none : t
+  val rising : t
+  val falling : t
+  val both : t
+end = struct
+  type t = int
+
+  let to_int x = x
+  let of_int x = x
+
+  let none = 1
+  let rising = 2
+  let falling = 3
+  let both = 4
+end
+
+module Gpiod_line_bias : sig
+  type t [@@immediate]
+
+  val to_int : t -> int
+  val of_int : int -> t
+
+  val as_is : t
+  val unknown : t
+  val disabled : t
+  val pull_up : t
+  val pull_down : t
+end = struct
+  type t = int
+
+  let to_int x = x
+  let of_int x = x
+
+  let as_is = 1
+  let unknown = 2
+  let disabled = 3
+  let pull_up = 4
+  let pull_down = 5
+end
+
+module Gpiod_line_drive : sig
+  type t [@@immediate]
+
+  val to_int : t -> int
+  val of_int : int -> t
+
+  val push_pull : t
+  val open_drain : t
+  val open_source : t
+end = struct
+  type t = int
+
+  let to_int x = x
+  let of_int x = x
+
+  let push_pull = 1
+  let open_drain = 2
+  let open_source = 3
+end
+
+module Gpiod_line_clock : sig
+  type t [@@immediate]
+
+  val to_int : t -> int
+  val of_int : int -> t
+
+  val monotonic : t
+  val realtime : t
+  val hte : t
+end = struct
+  type t = int
+
+  let to_int x = x
+  let of_int x = x
+
+  let monotonic = 1
+  let realtime = 2
+  let hte = 3
+end
+
+module Gpiod_info_event_type : sig
+  type t [@@immediate]
+
+  val to_int : t -> int
+  val of_int : int -> t
+
+  val gpiod_info_event_line_requested : t
+  val gpiod_info_event_line_released : t
+  val gpiod_info_event_line_config_changed : t
+end = struct
+  type t = int
+
+  let to_int x = x
+  let of_int x = x
+
+  let gpiod_info_event_line_requested = 1
+  let gpiod_info_event_line_released = 2
+  let gpiod_info_event_line_config_changed = 3
+end
+
+
+(* 7 enums *)
+
 external gpiod_chip_open
   : string -> gpiod_chip
   = "ccwrap__gpiod_chip_open"
