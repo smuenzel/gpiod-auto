@@ -306,6 +306,10 @@ external gpiod_info_event_get_line_info
   : gpiod_info_event -> gpiod_line_info
   = "ccwrap__gpiod_info_event_get_line_info"
 
+external gpiod_line_settings_new
+  : unit -> gpiod_line_settings
+  = "ccwrap__gpiod_line_settings_new"
+
 external gpiod_line_settings_reset
   : gpiod_line_settings -> unit
   = "ccwrap__gpiod_line_settings_reset"
@@ -386,7 +390,7 @@ external gpiod_line_config_get_num_configured_offsets
   : gpiod_line_config -> int
   = "ccwrap__gpiod_line_config_get_num_configured_offsets"
 
-(* 48 functions *)
+(* 49 functions *)
 (*$*)
 
 

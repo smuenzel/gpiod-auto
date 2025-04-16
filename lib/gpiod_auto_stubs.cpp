@@ -98,7 +98,7 @@ DEF_CPPCAML_S(gpiod_line_info_get_event_clock, 1);
 DEF_CPPCAML_S(gpiod_info_event_get_event_type, 1);
 DEF_CPPCAML_S(gpiod_info_event_get_timestamp_ns, 1);
 DEF_CPPCAML_S(gpiod_info_event_get_line_info, 1);
-// DEF_CPPCAML_S(gpiod_line_settings_new, 0);
+DEF_CPPCAML_S(gpiod_line_settings_new, 1, AdapterNoArg);
 DEF_CPPCAML_S(gpiod_line_settings_reset, 1);
 DEF_CPPCAML_S(gpiod_line_settings_copy, 1);
 DEF_CPPCAML_S(gpiod_line_settings_set_direction, 2);
