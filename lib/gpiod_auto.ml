@@ -382,6 +382,10 @@ external gpiod_line_settings_get_output_value
   : gpiod_line_settings -> gpiod_line_value
   = "ccwrap__gpiod_line_settings_get_output_value"
 
+external gpiod_line_config_new
+  : unit -> gpiod_line_config
+  = "ccwrap__gpiod_line_config_new"
+
 external gpiod_line_config_get_line_settings
   : gpiod_line_config -> uint32 -> gpiod_line_settings
   = "ccwrap__gpiod_line_config_get_line_settings"
@@ -390,7 +394,11 @@ external gpiod_line_config_get_num_configured_offsets
   : gpiod_line_config -> int
   = "ccwrap__gpiod_line_config_get_num_configured_offsets"
 
-(* 49 functions *)
+external gpiod_request_config_new
+  : unit -> gpiod_request_config
+  = "ccwrap__gpiod_request_config_new"
+
+(* 51 functions *)
 (*$*)
 
 

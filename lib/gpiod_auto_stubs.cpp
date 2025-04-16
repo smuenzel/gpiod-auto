@@ -117,13 +117,13 @@ DEF_CPPCAML_S(gpiod_line_settings_set_event_clock, 2);
 DEF_CPPCAML_S(gpiod_line_settings_get_event_clock, 1);
 DEF_CPPCAML_S(gpiod_line_settings_set_output_value, 2);
 DEF_CPPCAML_S(gpiod_line_settings_get_output_value, 1);
-// DEF_CPPCAML_S(gpiod_line_config_new, 0);
+DEF_CPPCAML_S(gpiod_line_config_new, 1, AdapterNoArg);
 // DEF_CPPCAML_S(gpiod_line_config_add_line_settings, 4);
 DEF_CPPCAML_S(gpiod_line_config_get_line_settings, 2);
 //DEF_CPPCAML_S(gpiod_line_config_set_output_values, 3);
 DEF_CPPCAML_S(gpiod_line_config_get_num_configured_offsets, 1);
 // DEF_CPPCAML_S(gpiod_line_config_get_configured_offsets, 3);
-// DEF_CPPCAML_S(gpiod_request_config_new, 0);
+DEF_CPPCAML_S(gpiod_request_config_new, 1, AdapterNoArg);
 
 
 
