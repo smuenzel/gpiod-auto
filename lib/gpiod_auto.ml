@@ -235,7 +235,7 @@ external gpiod_chip_get_line_offset_from_name
   = "ccwrap__gpiod_chip_get_line_offset_from_name"
 
 external gpiod_chip_request_lines
-  : gpiod_chip -> gpiod_request_config option -> gpiod_line_config -> gpiod_line_request
+  : gpiod_chip -> gpiod_request_config option -> gpiod_line_config -> gpiod_line_request option
   = "ccwrap__gpiod_chip_request_lines"
 
 external gpiod_chip_info_get_name

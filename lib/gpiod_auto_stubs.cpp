@@ -81,7 +81,7 @@ DEF_CPPCAML_S(gpiod_chip_get_fd, 1);
 DEF_CPPCAML_S(gpiod_chip_wait_info_event, 2);
 DEF_CPPCAML_S(gpiod_chip_read_info_event, 1, AdapterNullableReturn);
 DEF_CPPCAML_S(gpiod_chip_get_line_offset_from_name, 2);
-DEF_CPPCAML_S(gpiod_chip_request_lines, 3, AdapterNullable<1>);
+DEF_CPPCAML_S(gpiod_chip_request_lines, 3, AdapterNullableReturn, AdapterNullable<1>);
 DEF_CPPCAML_S(gpiod_chip_info_get_name, 1);
 DEF_CPPCAML_S(gpiod_chip_info_get_label, 1);
 DEF_CPPCAML_S(gpiod_chip_info_get_num_lines, 1);
