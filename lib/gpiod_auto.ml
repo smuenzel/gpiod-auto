@@ -227,7 +227,7 @@ external gpiod_chip_wait_info_event
   = "ccwrap__gpiod_chip_wait_info_event"
 
 external gpiod_chip_read_info_event
-  : gpiod_chip -> gpiod_info_event
+  : gpiod_chip -> gpiod_info_event option
   = "ccwrap__gpiod_chip_read_info_event"
 
 external gpiod_chip_get_line_offset_from_name
