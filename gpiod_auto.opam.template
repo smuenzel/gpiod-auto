@@ -1,6 +1,6 @@
 depexts: [
   [ "autoconf" ]
   [ "autoconf-archive" ]
-  [ "automake" ] { os-family = "macos" }
+  [ "automake" ] { os = "macos" }
 ]
 available: [ os = "linux" ]
