@@ -71,6 +71,9 @@ static_assert(HasToCaml<NullablePointer<gpiod_request_config>>);
 static_assert(HasOfCaml<NullablePointer<gpiod_request_config>>);
 
 
+DEF_CPPCAML_S(gpiod_is_gpiochip_device, 1);
+DEF_CPPCAML_S(gpiod_api_version, 1, AdapterNoArg);
+
 DEF_CPPCAML_S(gpiod_chip_open, 1);
 DEF_CPPCAML_S(gpiod_chip_get_info, 1);
 DEF_CPPCAML_S(gpiod_chip_get_path, 1);
@@ -97,6 +100,19 @@ DEF_CPPCAML_S(gpiod_line_info_is_active_low, 1);
 DEF_CPPCAML_S(gpiod_line_info_is_debounced, 1);
 DEF_CPPCAML_S(gpiod_line_info_get_debounce_period_us, 1);
 DEF_CPPCAML_S(gpiod_line_info_get_event_clock, 1);
+DEF_CPPCAML_S(gpiod_line_request_get_chip_name, 1);
+DEF_CPPCAML_S(gpiod_line_request_get_num_requested_lines, 1);
+//DEF_CPPCAML_S(gpiod_line_request_get_num_requested_offsets, 3);
+DEF_CPPCAML_S(gpiod_line_request_get_value, 2);
+//DEF_CPPCAML_S(gpiod_line_request_get_values_subset, 3);
+//DEF_CPPCAML_S(gpiod_line_request_get_values, 2);
+DEF_CPPCAML_S(gpiod_line_request_set_value, 3);
+//DEF_CPPCAML_S(gpiod_line_request_set_values_subset, 3);
+//DEF_CPPCAML_S(gpiod_line_request_set_values, 2);
+DEF_CPPCAML_S(gpiod_line_request_reconfigure_lines, 2);
+DEF_CPPCAML_S(gpiod_line_request_get_fd, 1);
+DEF_CPPCAML_S(gpiod_line_request_wait_edge_events, 2);
+//DEF_CPPCAML_S(gpiod_line_request_read_edge_events, 3);
 DEF_CPPCAML_S(gpiod_info_event_get_event_type, 1);
 DEF_CPPCAML_S(gpiod_info_event_get_timestamp_ns, 1);
 DEF_CPPCAML_S(gpiod_info_event_get_line_info, 1);
@@ -126,6 +142,10 @@ DEF_CPPCAML_S(gpiod_line_config_get_line_settings, 2);
 DEF_CPPCAML_S(gpiod_line_config_get_num_configured_offsets, 1);
 // DEF_CPPCAML_S(gpiod_line_config_get_configured_offsets, 3);
 DEF_CPPCAML_S(gpiod_request_config_new, 1, AdapterNoArg);
+DEF_CPPCAML_S(gpiod_request_config_set_consumer, 2);
+DEF_CPPCAML_S(gpiod_request_config_get_consumer, 1);
+DEF_CPPCAML_S(gpiod_request_config_set_event_buffer_size, 2);
+DEF_CPPCAML_S(gpiod_request_config_get_event_buffer_size, 1);
 
 
 

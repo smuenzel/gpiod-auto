@@ -22,6 +22,20 @@ let () =
 let () =
   print_externals ()
 
+(*
+let () =
+  print_prefix
+    [ "gpiod_chip_info"
+    ; "gpiod_chip"
+    ; "gpiod_request_config"
+    ; "gpiod_line_config"
+    ; "gpiod_line_request"
+    ; "gpiod_line_info"
+    ; "gpiod_line_settings"
+    ; "gpiod_info_event"
+    ]
+   *)
+
 *)
 
 module Gpiod_line_value : sig
@@ -194,6 +208,14 @@ type gpiod_info_event_type = Gpiod_info_event_type.t
 
 (* 7 enums *)
 
+external gpiod_is_gpiochip_device
+  : string -> bool
+  = "ccwrap__gpiod_is_gpiochip_device"
+
+external gpiod_api_version
+  : unit -> string
+  = "ccwrap__gpiod_api_version"
+
 external gpiod_chip_open
   : string -> gpiod_chip
   = "ccwrap__gpiod_chip_open"
@@ -293,6 +315,34 @@ external gpiod_line_info_get_debounce_period_us
 external gpiod_line_info_get_event_clock
   : gpiod_line_info -> gpiod_line_clock
   = "ccwrap__gpiod_line_info_get_event_clock"
+
+external gpiod_line_request_get_chip_name
+  : gpiod_line_request -> string
+  = "ccwrap__gpiod_line_request_get_chip_name"
+
+external gpiod_line_request_get_num_requested_lines
+  : gpiod_line_request -> int
+  = "ccwrap__gpiod_line_request_get_num_requested_lines"
+
+external gpiod_line_request_get_value
+  : gpiod_line_request -> uint32 -> gpiod_line_value
+  = "ccwrap__gpiod_line_request_get_value"
+
+external gpiod_line_request_set_value
+  : gpiod_line_request -> uint32 -> gpiod_line_value -> int
+  = "ccwrap__gpiod_line_request_set_value"
+
+external gpiod_line_request_reconfigure_lines
+  : gpiod_line_request -> gpiod_line_config -> int
+  = "ccwrap__gpiod_line_request_reconfigure_lines"
+
+external gpiod_line_request_get_fd
+  : gpiod_line_request -> int
+  = "ccwrap__gpiod_line_request_get_fd"
+
+external gpiod_line_request_wait_edge_events
+  : gpiod_line_request -> int64 -> int
+  = "ccwrap__gpiod_line_request_wait_edge_events"
 
 external gpiod_info_event_get_event_type
   : gpiod_info_event -> gpiod_info_event_type
@@ -398,7 +448,23 @@ external gpiod_request_config_new
   : unit -> gpiod_request_config
   = "ccwrap__gpiod_request_config_new"
 
-(* 51 functions *)
+external gpiod_request_config_set_consumer
+  : gpiod_request_config -> string -> unit
+  = "ccwrap__gpiod_request_config_set_consumer"
+
+external gpiod_request_config_get_consumer
+  : gpiod_request_config -> string
+  = "ccwrap__gpiod_request_config_get_consumer"
+
+external gpiod_request_config_set_event_buffer_size
+  : gpiod_request_config -> int -> unit
+  = "ccwrap__gpiod_request_config_set_event_buffer_size"
+
+external gpiod_request_config_get_event_buffer_size
+  : gpiod_request_config -> int
+  = "ccwrap__gpiod_request_config_get_event_buffer_size"
+
+(* 64 functions *)
 (*$*)
 
 
