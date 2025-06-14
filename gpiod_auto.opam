@@ -7,11 +7,14 @@ authors: ["Stefan Muenzel <source@s.muenzel.net>"]
 license: "MPL-2.0"
 tags: ["gpio" "libgpiod"]
 homepage: "https://github.com/smuenzel/gpiod-auto"
-doc: "https://url/to/documentation"
 bug-reports: "https://github.com/smuenzel/gpiod-auto/issues"
 depends: [
   "dune" {>= "3.17"}
   "ocaml"
+  "core"
+  "ppx_jane"
+  "capitalization"
+  "base_trie"
   "odoc" {with-doc}
 ]
 build: [

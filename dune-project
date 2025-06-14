@@ -14,13 +14,11 @@
 
 (license MPL-2.0)
 
-(documentation https://url/to/documentation)
-
 (package
  (name gpiod_auto)
  (synopsis "Ocaml interface to libgpiod")
  (description "Ocaml interface to libgpiod")
- (depends ocaml)
+ (depends ocaml core ppx_jane capitalization base_trie)
  (tags
   ("gpio" "libgpiod")))
 
