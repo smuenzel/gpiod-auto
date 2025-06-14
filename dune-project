@@ -18,7 +18,7 @@
  (name gpiod_auto)
  (synopsis "Ocaml interface to libgpiod")
  (description "Ocaml interface to libgpiod")
- (depends ocaml core ppx_jane capitalization base_trie)
+ (depends ocaml core ppx_jane capitalization base_trie cinaps)
  (tags
   ("gpio" "libgpiod")))
 

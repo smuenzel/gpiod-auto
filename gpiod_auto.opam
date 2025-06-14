@@ -15,6 +15,7 @@ depends: [
   "ppx_jane"
   "capitalization"
   "base_trie"
+  "cinaps"
   "odoc" {with-doc}
 ]
 build: [
