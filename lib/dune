@@ -2,11 +2,12 @@
   (public_name gpiod_auto.stubs)
   (name gpiod_auto_stubs)
   (libraries cppcaml.headers)
-  (c_library_flags (:standard -lgpiod))
   (modules)
+  (foreign_archives ../vendor/gpiod_internal)
   (foreign_stubs
     (language cxx)
     (names gpiod_auto_stubs)
+    (include_dirs ../vendor/libgpiod/include)
     (flags :standard -Wall -O3 -std=c++23 -fconcepts-diagnostics-depth=8)
     )
   )

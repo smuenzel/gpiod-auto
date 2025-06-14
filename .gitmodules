@@ -1,3 +1,6 @@
 [submodule "vendor/cppcaml"]
 	path = vendor/cppcaml
 	url = https://github.com/smuenzel/cppcaml.git
+[submodule "vendor/libgpiod"]
+	path = vendor/libgpiod
+	url = https://git.kernel.org/pub/scm/libs/libgpiod/libgpiod.git

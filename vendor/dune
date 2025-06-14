@@ -1,0 +1,15 @@
+(data_only_dirs libgpiod)
+
+(rule
+  (deps (source_tree libgpiod))
+  (targets libgpiod_internal.a dllgpiod_internal.so)
+  (action
+    (no-infer
+      (progn
+        (chdir libgpiod
+          (progn
+            (run autoreconf -ifv)
+            (run ./configure --enable-tools)
+            (run make)
+            (copy lib/.libs/libgpiod.a ../libgpiod_internal.a)
+            (copy lib/.libs/libgpiod.so ../dllgpiod_internal.so)))))))
