@@ -217,7 +217,7 @@ external gpiod_api_version
   = "ccwrap__gpiod_api_version"
 
 external gpiod_chip_open
-  : string -> gpiod_chip
+  : string -> gpiod_chip option
   = "ccwrap__gpiod_chip_open"
 
 external gpiod_chip_get_info

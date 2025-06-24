@@ -36,5 +36,6 @@ dev-repo: "git+https://github.com/smuenzel/gpiod-auto.git"
 depexts: [
   [ "autoconf" ]
   [ "autoconf-archive" ]
+  [ "automake" ] { os = "macos" }
 ]
 available: [ os = "linux" ]

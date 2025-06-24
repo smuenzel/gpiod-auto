@@ -74,7 +74,7 @@ static_assert(HasOfCaml<NullablePointer<gpiod_request_config>>);
 DEF_CPPCAML_S(gpiod_is_gpiochip_device, 1);
 DEF_CPPCAML_S(gpiod_api_version, 1, AdapterNoArg);
 
-DEF_CPPCAML_S(gpiod_chip_open, 1);
+DEF_CPPCAML_S(gpiod_chip_open, 1, AdapterNullableReturn);
 DEF_CPPCAML_S(gpiod_chip_get_info, 1);
 DEF_CPPCAML_S(gpiod_chip_get_path, 1);
 DEF_CPPCAML_S(gpiod_chip_get_line_info, 2);
